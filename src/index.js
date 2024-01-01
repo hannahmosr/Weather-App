@@ -1,13 +1,19 @@
+function displayTemperature(response) {
+  let temperatureElement = document.querySelector("#current-temperature");
+  let temperature = Math.round(response.data.temperature.current);
+  temperatureElement.innerHTML = temperature;
+}
+
 function searchQuery(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search-text-input");
   let NewCity = document.querySelector("#current-city");
   let city = searchInput.value;
-
+  NewCity.innerHTML = `${city}`;
   let apiKey = "7394a3ffab5cc09c86e6t0co260f5ec2";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
-  NewCity.innerHTML = `${city}`;
+  axios.get(apiUrl).then(displayTemperature);
 }
 
 let search = document.querySelector("#search-city");
