@@ -5,6 +5,8 @@ function searchQuery(event) {
   city.innerHTML = `${searchInput.value}`;
 }
 
+let apiKey = "7394a3ffab5cc09c86e6t0co260f5ec2";
+
 let search = document.querySelector("#search-city");
 search.addEventListener("submit", searchQuery);
 
